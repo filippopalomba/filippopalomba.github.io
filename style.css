@@ -1,0 +1,365 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+html {overflow-y: scroll}
+
+body {
+	margin-top: 20px;
+	padding: 0;
+    background: #f9f9f9 ;
+    background-size: 100% ;
+    background-repeat: no-repeat;
+    
+	font-family: Andale Mono, sans-serif;
+	font-size: 14px;
+	color: #0c0019;
+
+}
+
+
+@media screen and (max-width: 640px){
+ body {
+
+ /*  background: #070d12 url("machine32.jpg"); */
+  
+  background: #f9f9f9 
+ }
+}
+
+h5 {
+	margin: 0;
+	font-family: Andale Mono, sans-serif;
+	font-weight: normal;
+	color: #2f4f4f; 
+ 
+}
+
+h1, h2, h3 {
+	margin: 0;
+/*	text-transform: lowercase;*/
+	font-family: Andale Mono, sans-serif;
+	font-weight: normal;
+	color: #2f4f4f; 
+
+	/*color: #f5f5f5;*/ /*white smoke*/
+}
+
+h1 {
+	letter-spacing: -1px;
+	font-size: 26px;
+}
+
+h2 {
+	font-size: 26px;
+}
+
+
+
+p, ul, ol {
+	margin: 0 0 2em 0;
+	text-align: left;
+	line-height: 26px;
+	color: #2f4f4f;
+}
+
+a:link {
+	color: #0c0019;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+	color: #0c0019;
+}
+
+a:visited {
+	color: #0c0019;
+    text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 7px 15px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 7px 0 0 15px;
+}
+
+/* Header */
+
+#header {
+	width: 900px;
+	height: 80px;
+	margin: 0 auto 20px auto;
+	padding-top: 10px;
+}
+
+#logo {
+	float: left;
+	height: auto;
+	margin-left: 10px;
+}
+
+#logo h1 {
+	/*float: left;*/
+	font-size: 34px;
+	color: #2f4f4f;
+	font-family: Andale Mono, sans-serif;
+}
+
+#logo h1 sup {
+	vertical-align: text-top;
+	font-size: 24px;
+	color: #2f4f4f;
+}
+
+#logo h1 a {
+	color: #2f4f4f;
+}
+
+#logo h2 {
+	float: left;
+	margin: 0;
+	padding: 10px 0 0 10px;
+	text-transform: uppercase;
+	font-family: Andale Mono, sans-serif;
+	font-size: 14px;
+		color: #A0A0A5;
+	/*	color: #f5f5f5;*/ /*white smoke*/
+}
+
+#logo a {
+	text-decoration: none;
+	color: #f5f5f5;
+}
+
+/* Menu */
+
+#menu {
+	float: right;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	margin-left: 5px;
+	background: #f1f1f1;/*#EDEDED; /*0094E0;*/
+	border: 1px dashed #f1f1f1;
+	padding: 1px 10px;
+	text-decoration: none;
+	font-size: 12px;
+	color: #f1f1f1;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu .active a {
+}
+
+/* Page */
+
+#page {
+	width: 800px;
+	margin: 0 auto;
+	background: #f1f1f1;
+/* border: 1px #F0E9D6 solid; */
+
+	border: 1px #f1f1f1 solid;
+	padding: 20px 20px;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 600px;
+	padding-left: 10px;
+}
+
+/* Flagging todo */
+.todo{
+	background-color: #f1f1f1;/*#EDEDED;*/
+	color: #3B3B3B;
+}
+
+/* Category Class - Used for research categories, etc. */
+.category {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 5px; /*	padding-left: 40px; */ /*	background: url(images/img02.jpg) no-repeat left top; */;
+	/*border-bottom: 1px dashed #D1D1D1;*/
+/*	color: #0c0019; */	color: #0c0019;
+}
+
+/* Item Class*/
+.item {
+margin-top:10px
+}
+
+.item ul {
+	color: #0c0019;
+}
+
+.item li {
+	margin-left: 10px;
+	color: #0c0019;
+}
+
+
+
+.item .with {
+color: #0c0019;
+}
+
+.item .date {
+	text-align: right;
+	margin-top: -15px;
+	margin-bottom: 10px;
+	color: #0c0019;
+	
+}
+
+.item .abstract {
+	text-align: justify;
+	color: #0c0019;
+	margin-bottom:20px;
+}
+
+
+.item .title {
+	margin-bottom: 10px;
+	padding-bottom: 5px; /*	padding-left: 40px; */ /*	background: url(images/img02.jpg) no-repeat left top; */; /*border-bottom: 1px dashed #D1D1D1;*/;
+	border-top: 1px dashed #D1D1D1;
+	/*margin-top: 10px;*/
+	font-size: large; /*	color: #8BCB2F; 	color: #2B0055;*/;
+	color: #0c0019;
+}
+/*
+.item .title b {
+	font-weight: normal;
+	color: #0094E0;
+}
+*/
+.item .entry {
+	color:  #0c0019;
+}
+
+.item .meta {
+	margin: 0;
+	padding: 15px 0 60px 0;
+	background: url(images/img04.jpg) repeat-x left 30%;
+}
+
+.item .meta p {
+	margin: 0;
+	line-height: normal;
+}
+
+.item .meta .byline {
+	float: left;
+	color: #0c0019;
+}
+
+.item .meta .links {
+	float: left;
+}
+
+.item .meta .more {
+	width: 185px;
+	height: 35px;
+	padding: 5px 10px;
+	background: #f5f5f5; /*#8BCB2F;*/
+	border: 1px dashed #D1D1D1;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 9px;
+}
+
+.item .meta .comments {
+	padding: 5px 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #f5f5f5;/*#0094E0;*/
+	border: 1px dashed #D1D1D1;
+	font-size: 9px;
+}
+
+.item .meta b {
+	display: none;
+}
+
+.item .meta a {
+	color: #f1f1f1;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 130px;
+	padding-right: 10px;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 10px 0 0 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin-bottom: 40px;
+}
+
+#sidebar li ul {
+}
+
+#sidebar li li {
+	margin: 0;
+	padding: 3px 0;
+	border-bottom: 1px dashed #D1D1D1;
+	text-align: left;
+}
+
+#sidebar li li a {
+	margin: 0;
+	padding-left: 15px;
+	background: url(images/img01.jpg) no-repeat left 50%;
+}
+
+#sidebar h2 {
+	padding-bottom: 5px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #2f4f4f;
+}
+
+#sidebar strong, #sidebar b {
+	color: #2f4f4f;
+}
+
+#sidebar a {
+	text-decoration: none;
+	color: #2f4f4f;
+}
+
