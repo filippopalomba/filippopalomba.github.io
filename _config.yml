@@ -1,3 +1,23 @@
 theme: jekyll-theme-tactile
+
+# -----------------------------------------------------------------------------
+# Social integration
+# -----------------------------------------------------------------------------
+
+# twitter_username: giuliaguidi
+# linkedin_username: giulia-guidi # your LinkedIn user name
 github_username: filippopalomba
 google_analytics: G-FY2E2C6851
+# scholar_userid: UZLC4TYAAAAJ # your Google Scholar ID
+orcid_id: # your ORCID ID
+medium_username: # your Medium username
+quora_username: # your Quora username
+publons_id: # your ID on Publons
+research_gate_profile: # research gate profile
+blogger_url: # your blogger URL
+work_url: # work page URL
+keybase_username: # your keybase user name
+wikidata_id: # your wikidata id
+
+contact_note: >
+  The best way to contact me is via email.
