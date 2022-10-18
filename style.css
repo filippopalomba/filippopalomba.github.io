@@ -78,11 +78,11 @@ a:hover {
 
 a:active {
 	text-decoration: none;
-	color: #0c0019;
+	color: #FF8F00;
 }
 
 a:visited {
-	color: #0c0019;
+	color: #FF8F00;
     text-decoration: none;
 }
 
