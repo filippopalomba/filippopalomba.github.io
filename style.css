@@ -70,7 +70,13 @@ a:link {
 	text-decoration: none;
 }
 
-a:hover, a:active {
+a:hover {
+	color: #FF8F00;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+a:active {
 	text-decoration: none;
 	color: #0c0019;
 }
@@ -172,9 +178,6 @@ img.right {
 
 #menu a:hover {
 	text-decoration: underline;
-}
-
-#menu .active a {
 }
 
 /* Page */
@@ -329,9 +332,6 @@ color: #0c0019;
 
 #sidebar li {
 	margin-bottom: 40px;
-}
-
-#sidebar li ul {
 }
 
 #sidebar li li {
