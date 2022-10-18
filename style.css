@@ -177,6 +177,7 @@ img.right {
 }
 
 #menu a:hover {
+	color: #FF8F00;
 	text-decoration: underline;
 }
 
