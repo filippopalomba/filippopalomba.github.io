@@ -78,11 +78,11 @@ a:hover {
 
 a:active {
 	text-decoration: none;
-	color: #FF8F00;
+	color: #0c0019;
 }
 
 a:visited {
-	color: #FF8F00;
+	color: #0c0019;
     text-decoration: none;
 }
 
@@ -177,14 +177,13 @@ img.right {
 }
 
 #menu a:hover {
-	color: #FF8F00;
 	text-decoration: underline;
 }
 
 /* Page */
 
 #page {
-	width: 900px;
+	width: 800px;
 	margin: 0 auto;
 	background: #f1f1f1;
 /* border: 1px #F0E9D6 solid; */
@@ -197,7 +196,7 @@ img.right {
 
 #content {
 	float: left;
-	width: 700px;
+	width: 600px;
 	padding-left: 10px;
 }
 
