@@ -370,10 +370,3 @@ color: #0c0019;
 	text-decoration: none;
 	color: #2f4f4f;
 }
-
-div.horizontalgap {
-	float: left;
-	overflow: hidden;
-	height: 1px;
-	width: 0px;
-  }
