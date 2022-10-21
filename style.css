@@ -371,3 +371,9 @@ color: #0c0019;
 	color: #2f4f4f;
 }
 
+div.horizontalgap {
+	float: left;
+	overflow: hidden;
+	height: 1px;
+	width: 0px;
+  }
