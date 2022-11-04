@@ -57,8 +57,9 @@ h2 {
 }
 
 h4 {
-	font-size: 18px;
-	font-style: italic, bold;	
+	font-size: 16px;
+	font-style: italic, bold;
+	margin: 0px 0px 0px 0px;
 }
 
 
@@ -208,7 +209,7 @@ img.right {
 
 #contentwide {
 	float: left;
-	width: 720px;
+	width: 750px;
 	padding-left: 10px;
 }
 
