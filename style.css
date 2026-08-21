@@ -1,0 +1,274 @@
+/* ==========================================================================
+   "Editorial" — single-page site (Princeton-based, themeable)
+   Fixed banner sidebar + serif content. All colors are driven by CSS
+   variables, switched by attributes on <html>.
+
+   THEME LAYERS (applied via attributes on <html>):
+     data-palette = princeton | orange | navy | ivy | slate | burgundy
+     data-mode    = light | dark
+     data-cb      = off | on           (colorblind-safe accents)
+
+   The on-page toggle panel was removed, so these are now fixed at whatever
+   index.html hard-codes (currently ivy / light / off). The dark and cb rule
+   blocks below are therefore inert — kept because re-enabling either is just
+   a matter of flipping the attribute on <html>, by hand or from a script.
+   To have dark mode follow the visitor's OS instead, change the
+   `html[data-mode="dark"]` selector to `@media (prefers-color-scheme: dark)`.
+
+   Princeton colors: orange #E77500, black #121212 (Princeton OIT palette).
+   ========================================================================== */
+
+:root {
+  /* content surface (light) */
+  --paper:     #faf7f0;
+  --ink:       #29261f;
+  --muted:     #6d675a;
+  --rule:      #e5decf;
+  --callout-bg:#f3ede0;
+  --divider:   rgba(0,0,0,.06);
+
+  /* banner (default palette = Princeton black) */
+  --side-bg:    #121212;
+  --side-ink:   #f2efe9;
+  --side-dim:   #a5a29a;
+  --side-strong:#ffffff;
+  --side-active:#f0a460;
+  --side-rule:  rgba(240,233,217,.20);
+
+  /* accents */
+  --accent: #b4552d;   /* terracotta — decorative */
+  --link:   #b4552d;   /* terracotta — link text */
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sidebar-w: 320px;
+}
+
+/* ---------- palettes (banner + accents; content stays from :root) ---------- */
+html[data-palette="princeton"] {
+  --side-bg:#121212; --side-ink:#f2efe9; --side-dim:#a5a29a; --side-strong:#fff; --side-active:#f0a460;
+  --accent:#E77500; --link:#b45c00;
+}
+html[data-palette="orange"] {
+  --side-bg:#E77500; --side-ink:#22160a; --side-dim:#6b481d; --side-strong:#000; --side-active:#2a1c07;
+  --accent:#b45c00; --link:#9a4f00;
+}
+html[data-palette="navy"] {
+  --side-bg:#17263f; --side-ink:#e9edf4; --side-dim:#9aa6bb; --side-strong:#fff; --side-active:#f0a460;
+  --accent:#E77500; --link:#b45c00;
+}
+html[data-palette="ivy"] {
+  --side-bg:#1e3a2f; --side-ink:#f0e9d9; --side-dim:#a9b8a7; --side-strong:#fff; --side-active:#f0a460;
+  --accent:#b4552d; --link:#b4552d;
+}
+html[data-palette="slate"] {
+  --side-bg:#2b2f36; --side-ink:#edeef0; --side-dim:#a6acb5; --side-strong:#fff; --side-active:#f0a460;
+  --accent:#E77500; --link:#b45c00;
+}
+html[data-palette="burgundy"] {
+  --side-bg:#4a1f24; --side-ink:#f2e9e7; --side-dim:#c2a6a4; --side-strong:#fff; --side-active:#f0a460;
+  --accent:#E77500; --link:#b45c00;
+}
+
+/* ---------- dark mode (content surface; banner keeps its palette) ---------- */
+html[data-mode="dark"] {
+  --paper:#15171b; --ink:#e6e7ea; --muted:#9a9ea6; --rule:#2a2e35; --callout-bg:#1e2228;
+  --divider: rgba(255,255,255,.09);
+  --accent:#d47a4a; --link:#df8a5a;   /* brighter terracotta for dark surfaces */
+}
+
+/* ---------- colorblind-safe accents (Okabe–Ito blue), light + dark ---------- */
+html[data-cb="on"] {
+  --accent:#0072B2; --link:#0063a6; --side-active:#8fc7ee;
+}
+html[data-cb="on"][data-mode="dark"] {
+  --accent:#56B4E9; --link:#7cc4ee; --side-active:#9ecdf0;
+}
+html[data-cb="on"] .content a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ========================================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17.5px;
+  line-height: 1.66;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- sidebar ---------- */
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--side-bg);
+  color: var(--side-ink);
+  padding: 44px 40px 28px;
+  display: flex; flex-direction: column;
+  overflow: hidden;              /* the banner never scrolls on its own */
+  border-right: 1px solid var(--divider);
+}
+/* The banner is a fixed, full-height column, so it must fit the viewport without
+   scrolling. At its natural size the content needs ~740px (identity strip replacing
+   the footer and the shorter nav bought back ~100px), so it fits a typical 800px-tall
+   window with the portrait at full size. On shorter windows the portrait — the
+   flexible element — shrinks to absorb the deficit (object-fit keeps it undistorted,
+   cropping from the top via object-position) so the nav stays visible. */
+.sidebar img.me {
+  width: 240px; height: 288px;   /* full-width portrait (address removed freed the space) */
+  flex: 0 1 auto;                /* may shrink when the window is short */
+  min-height: 140px;             /* ...but never below a recognizable portrait */
+  object-fit: cover;
+  object-position: 50% 100%;     /* crop the empty space above the head; keep face + arms */
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+.sidebar .name {
+  margin-top: 20px;
+  font-size: 24px; line-height: 1.2;
+  letter-spacing: .01em; white-space: nowrap;
+}
+.sidebar .name a { color: var(--side-ink); }
+.sidebar .name a:hover { text-decoration: none; }
+.sidebar .role { margin-top: 8px; font-size: 14.5px; line-height: 1.5; color: var(--side-dim); }
+
+.sidebar nav { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--side-rule); }
+.sidebar nav a {
+  display: block; color: var(--side-ink);
+  font-size: 16px; padding: 6px 0;
+  border-left: 2px solid transparent;
+}
+.sidebar nav a:hover { color: var(--side-strong); text-decoration: none; padding-left: 6px; transition: padding .15s; }
+.sidebar nav a.active { color: var(--side-active); border-left: 2px solid var(--side-active); padding-left: 12px; }
+
+/* Identity strip under the role: CV link, then email / GitHub / Scholar as icons.
+   Every mark's viewBox is cropped to its ink bounds, so setting heights here renders
+   them at true optical size regardless of each glyph's aspect ratio. */
+.sidebar .idlinks { margin-top: 18px; display: flex; align-items: center; gap: 12px; }
+.sidebar .idlinks .cv {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--side-active); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase;
+}
+.sidebar .idlinks .cv:hover { color: var(--side-ink); text-decoration: none; }
+.sidebar .idlinks .sep { width: 1px; height: 15px; background: var(--side-rule); }
+.sidebar .idlinks .pic {
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--side-dim); background: none; border: 0; padding: 0; cursor: pointer;
+}
+.sidebar .idlinks .pic:hover { color: var(--side-ink); }
+.sidebar .idlinks .cv:focus-visible,
+.sidebar .idlinks .pic:focus-visible { outline: 1px dotted var(--side-active); outline-offset: 3px; }
+.sidebar .idlinks svg { height: 16px; width: auto; display: block; }
+.sidebar .idlinks .ic-doc { height: 15px; }
+.sidebar .idlinks .ic-mail { height: 15px; }
+.sidebar .idlinks .ic-check { height: 13px; display: none; }
+/* Fixed slot so the envelope -> check swap cannot nudge the icons after it. */
+.sidebar .idlinks .mailbtn { width: 18px; }
+.sidebar .idlinks .mailbtn.copied { color: var(--side-active); }
+.sidebar .idlinks .mailbtn.copied .ic-mail { display: none; }
+.sidebar .idlinks .mailbtn.copied .ic-check { display: block; }
+/* visually hidden live region announcing the copy to screen readers */
+.sidebar .idlinks .vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---------- content ---------- */
+.content { margin-left: var(--sidebar-w); padding: 72px 64px 72px; }
+.inner { max-width: 820px; }
+section { scroll-margin-top: 34px; }
+
+.lede {
+  font-size: 18px; line-height: 1.5;
+  margin: 4px 0 8px;
+}
+.lede strong { color: var(--ink); }
+
+h2 { font-size: 24px; font-weight: 600; margin: 48px 0 6px; }
+.h-rule { width: 46px; height: 3px; background: var(--accent); border: none; margin: 0 0 22px; }
+
+p + p { margin-top: 14px; }
+
+.overline { font-size: 14.5px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: var(--accent); }
+
+/* JMP feature */
+section#jmp { margin-top: 40px; }
+.jmp { border-top: 3px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 26px 0 28px; margin: 10px 0 8px; }
+.jmp .title { font-size: 27px; font-weight: 600; line-height: 1.2; }
+.jmp .meta { margin-top: 8px; color: var(--muted); font-size: 15.5px; }
+.jmp details { margin-top: 14px; }
+.jmp summary { cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.jmp summary::marker { color: var(--ink); }                 /* triangle: black ink */
+.jmp summary::-webkit-details-marker { color: var(--ink); } /* triangle: black ink (older WebKit) */
+.jmp details p { margin-top: 12px; font-size: 16px; color: var(--muted); text-align: justify; hyphens: auto; padding-left: 18px; border-left: 2px solid var(--rule); }
+
+/* papers */
+.paper { margin-bottom: 26px; }
+.paper .title { font-size: 18px; font-weight: 600; line-height: 1.35; }
+.paper .title a { color: var(--ink); }
+.paper .title a:hover { color: var(--link); text-decoration: none; }
+.paper .authors { font-size: 15.5px; color: var(--muted); margin-top: 2px; }
+.paper .authors a { color: inherit; }
+.paper .venue { font-size: 15px; margin-top: 2px; }
+.paper .venue .v { font-style: italic; color: var(--ink); }
+.paper .venue .y { color: var(--muted); }
+.paper .plinks { font-size: 14.5px; margin-top: 5px; letter-spacing: .01em; }
+.paper .plinks a { color: var(--link); margin-right: 2px; }
+.paper .plinks .sl { color: var(--rule); margin: 0 6px; }
+
+/* brief description toggle — used by papers (between the venue line and the
+   links) and by taught courses; keeps the native disclosure triangle, colored
+   black, matching the JMP abstract control */
+.brief { margin: 6px 0 2px; }
+.brief summary {
+  cursor: pointer; color: var(--muted); width: fit-content;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+}
+.brief summary::marker { color: var(--ink); }                 /* triangle: black ink */
+.brief summary::-webkit-details-marker { color: var(--ink); } /* triangle: black ink (older WebKit) */
+.brief summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.brief p {
+  margin-top: 9px; font-size: 15px; line-height: 1.55; color: var(--muted);
+  text-align: justify; hyphens: auto;
+  padding-left: 14px; border-left: 2px solid var(--rule);
+}
+
+/* teaching */
+.course { margin-bottom: 24px; }
+.course .cname { font-size: 18.5px; font-weight: 600; }
+.course .role2 { color: var(--muted); font-size: 15.5px; margin-top: 2px; }
+.course .score { color: var(--accent); font-weight: 700; }
+
+/* software */
+.pkg { margin-bottom: 26px; }
+.pkg .pname { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 16.5px; font-weight: 700; }
+.pkg .pname a { color: var(--ink); }
+.pkg .pname a:hover { color: var(--link); text-decoration: none; }
+.pkg .lang { color: var(--muted); font-size: 14.5px; }
+.pkg .desc { font-size: 16px; margin-top: 3px; }
+.pkg .badges { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.pkg .badges img { height: 20px; display: block; }
+
+/* ---------- responsive ---------- */
+
+/* Safety valve: below ~700px of viewport height even the shrunk portrait cannot
+   buy enough room, and `overflow: hidden` would swallow the bottom nav links. In
+   that corner give the banner its scrollbar back — a scrollbar beats unreachable
+   links. Scoped to the desktop layout; under 900px wide the banner is static. */
+@media (min-width: 901px) and (max-height: 700px) {
+  .sidebar { overflow-y: auto; }
+}
+
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; padding: 36px 28px 28px; border-right: none; border-bottom: 1px solid var(--divider); }
+  .sidebar nav { margin-top: 22px; }
+  .sidebar nav a { display: inline-block; margin-right: 18px; border-left: none; }
+  .sidebar nav a.active { border-left: none; padding-left: 0; border-bottom: 2px solid var(--side-active); }
+  .content { margin-left: 0; padding: 40px 28px; }
+}

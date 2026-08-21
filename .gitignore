@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+Icon?
+
+# Dropbox conflict copies (this repo lives inside a Dropbox folder)
+*conflicted copy*
+*(view-only conflicts*
+
+# Editors
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Jekyll build output (the site is served static via .nojekyll)
+_site/
+.jekyll-cache/
+.jekyll-metadata
