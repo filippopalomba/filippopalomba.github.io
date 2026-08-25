@@ -76,6 +76,9 @@ Not covered by sections 1 or 2, and not Filippo Palomba's to license:
 - The **LinkedIn** glyph in `index.html` is taken from Simple Icons
   (<https://simpleicons.org>), released under CC0 1.0. The LinkedIn logo is a
   trademark of LinkedIn Corporation.
+- The **ORCID** glyph in `index.html` is taken from Simple Icons
+  (<https://simpleicons.org>), released under CC0 1.0. The ORCID iD icon is a
+  trademark of ORCID, Inc.
 - `assets/ptonicon.svg` is the Princeton University shield, a trademark of
   the Trustees of Princeton University, reproduced here to identify the
   author's affiliation. It is not licensed for reuse by this document.
