@@ -268,6 +268,36 @@ M514 154q0 13 -17 11q-16 0 -16 -11q0 -13 17 -11q16 0 16 11zM572 164q-2 11 -18 9q
     <section id="software">
       <h2>Software</h2>
       <hr class="h-rule">
+      <!-- tvbounds — the R package from the sensitivity-analysis paper.
+           Not on CRAN yet and the GitHub repo is still private, so the badge row
+           below is the placeholder set: three static shields that render today and
+           match the shape of the live rows underneath. The real badges are parked
+           in the comment right after it — a `display:none` row was avoided on
+           purpose, since hidden <img> tags are still fetched and the CRAN one
+           500s on every page load.
+           TO GO LIVE, three edits, no new markup to write:
+             1. delete the placeholder <div class="badges"> below;
+             2. uncomment the live <div class="badges"> after it;
+             3. wrap the .pname text in
+                <a href="https://github.com/filippopalomba/tvbounds" target="_blank">…</a>
+                (or the pkgdown site, if one is published). -->
+      <div class="pkg">
+        <span class="pname">tvbounds</span>
+        <span class="lang">&mdash; R</span>
+        <div class="desc">Sensitivity of estimands to distributional assumptions.</div>
+        <div class="badges">
+          <img src="https://img.shields.io/badge/version-0.1.0-yellowgreen" alt="Version 0.1.0">
+          <img src="https://img.shields.io/badge/CRAN-coming%20soon-lightgrey" alt="CRAN release forthcoming">
+          <img src="https://img.shields.io/badge/GitHub-private%20repo-lightgrey" alt="GitHub repository private">
+        </div>
+        <!-- live badges — final URLs, uncomment on release:
+        <div class="badges">
+          <a href="https://cran.r-project.org/web/packages/tvbounds/index.html" target="_blank"><img src="https://www.r-pkg.org/badges/version/tvbounds?color=yellowgreen" alt="CRAN version"></a>
+          <img src="https://cranlogs.r-pkg.org/badges/grand-total/tvbounds?color=yellowgreen" alt="CRAN downloads">
+          <a href="https://github.com/filippopalomba/tvbounds" target="_blank"><img src="https://img.shields.io/github/stars/filippopalomba/tvbounds?style=social&amp;cacheSeconds=86400" alt="GitHub stars"></a>
+        </div>
+        -->
+      </div>
       <div class="pkg">
         <span class="pname"><a href="https://nppackages.github.io/scpi/" target="_blank">scpi</a></span>
         <span class="lang">&mdash; Python, R, Stata</span>
