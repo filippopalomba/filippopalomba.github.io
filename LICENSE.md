@@ -41,10 +41,11 @@ Licensed under a Creative Commons Attribution-NonCommercial 4.0 International
 License: <https://creativecommons.org/licenses/by-nc/4.0/>. You may share and
 adapt this text for non-commercial purposes with attribution to Filippo Palomba.
 
-## 3. Papers and other PDFs — all rights reserved
+## 3. Papers, figures, and other PDFs — all rights reserved
 
-Applies to everything under `docs/` and `assets/docs/`, and to
-`assets/FilippoPalomba_cv.pdf`.
+Applies to everything under `docs/` and `assets/docs/`, to
+`assets/FilippoPalomba_cv.pdf`, and to `assets/roadmap_sensitivity.svg`, a
+figure from the paper it illustrates.
 
 These files are **not** covered by sections 1 or 2. Copyright in each paper
 remains with its authors and, where the paper has been published, with the

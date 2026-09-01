@@ -202,6 +202,8 @@ section#jmp { margin-top: 40px; }
 .jmp { border-top: 3px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 26px 0 28px; margin: 10px 0 8px; }
 .jmp .title { font-size: 27px; font-weight: 600; line-height: 1.2; }
 .jmp .meta { margin-top: 8px; color: var(--muted); font-size: 15.5px; }
+.jmp-fig { margin: 20px 0 4px; }
+.jmp-fig img { display: block; width: 100%; max-width: 660px; height: auto; margin: 0 auto; }
 .jmp details { margin-top: 14px; }
 .jmp summary { cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .jmp summary::marker { color: var(--ink); }                 /* triangle: black ink */
