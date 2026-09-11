@@ -253,6 +253,12 @@ section#jmp { margin-top: 40px; }
 .pkg .pname a { color: var(--ink); }
 .pkg .pname a:hover { color: var(--link); text-decoration: none; }
 .pkg .lang { color: var(--muted); font-size: 14.5px; }
+/* my role on the package: reads as one more fact on the language line, same
+   muted upright type, split by the same muted middot the venue lines use. Never
+   accent-colored — nothing here clicks. nowrap keeps a two-word role together on
+   phones instead of breaking mid-phrase ("creator, former / maintainer"). */
+.pkg .rsep { color: var(--muted); margin: 0 5px; }
+.pkg .prole { color: var(--muted); font-size: 14.5px; white-space: nowrap; }
 .pkg .desc { font-size: 16px; margin-top: 3px; }
 .pkg .badges { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .pkg .badges img { height: 20px; display: block; }
