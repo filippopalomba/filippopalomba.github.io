@@ -223,7 +223,6 @@ section#jmp { margin-top: 40px; }
 .paper .plinks, .jmp .plinks { font-size: 14.5px; margin-top: 5px; letter-spacing: .01em; }
 .paper .plinks a, .jmp .plinks a { color: var(--link); margin-right: 2px; }
 .paper .plinks .sl, .jmp .plinks .sl { color: var(--rule); margin: 0 6px; }
-.plinks .soon { color: var(--muted); }   /* placeholder entry, not yet a link */
 
 /* brief description toggle — used by papers (between the venue line and the
    links) and by taught courses; keeps the native disclosure triangle, colored
